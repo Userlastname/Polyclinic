@@ -54,7 +54,7 @@ end
 
 group :test do
   gem "capybara"
-  gem 'shoulda-matchers', require: false
+  gem "shoulda-matchers", "~> 5.0"
   gem "selenium-webdriver"
   gem "webdrivers"
 end
