@@ -39,6 +39,8 @@ gem 'factory_bot_rails', '~> 6.2'
 
 gem 'faker', '~> 3.2'
 
+gem 'rubocop', require: false
+
 gem 'activeadmin', '~> 2.13', '>= 2.13.1'
 gem 'bootstrap-sass'
 gem 'cloudinary', '~> 1.25'
