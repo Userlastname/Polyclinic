@@ -42,8 +42,7 @@ gem 'faker', '~> 3.2'
 gem 'rubocop', require: false
 
 gem 'activeadmin', '~> 2.13', '>= 2.13.1'
-gem 'bootstrap-sass'
-gem 'cloudinary', '~> 1.25'
+gem 'active_bootstrap_skin'
 
 group :development, :test do
   gem 'debug', '~> 1.8', platforms: %i[ mri mingw x64_mingw ]
