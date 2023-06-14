@@ -10,10 +10,11 @@
     </div>
 
     <% if devise_mapping.rememberable? %>
+      <span class="ml-2 text-sm text-white"><%= link_to "Doctor?", new_doctor_session_path %></span>
       <div class="mb-4">
-        <label class="flex items-center">
+        <label class="flex justify-end">
           <%= f.check_box :remember_me, class: "mr-2 leading-tight" %>
-          <span class="text-sm text-white text-gray-700">Remember me</span>
+          <span class="text-sm text-white">Remember me</span>
         </label>
       </div>
     <% end %>
