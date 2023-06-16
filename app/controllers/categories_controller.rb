@@ -1,8 +1,4 @@
 class CategoriesController < ApplicationController
-  def index
-    @categories = collection
-  end
-
   def show
     @category = resource
   end
