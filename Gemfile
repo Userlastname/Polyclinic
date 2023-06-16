@@ -61,3 +61,7 @@ group :test do
 end
 
 gem "tailwindcss-rails", "~> 2.0"
+
+gem "importmap-rails", "~> 1.1"
+
+gem "hotwire-rails", "~> 0.1.3"
