@@ -1,6 +1,14 @@
-main {
+body {
   background-image: url('/assets/bg-pic.jpeg');
   background-repeat: no-repeat;
   background-size: cover;
   background-position: center;
+  min-height: 100vh;
+}
+.aside-toggle-button {
+  position: absolute;
+  top: 0;
+  left: 50%;
+  transform: translateX(-50%);
+  z-index: 999;
 }
