@@ -10,7 +10,7 @@ class DoctorsController < ApplicationController
     redirect_to request.referer
   end
 
-  def appointments
+  def recommendations
     @doctor = current_doctor
     @appointments = @doctor.appointments.includes(:user)
   end

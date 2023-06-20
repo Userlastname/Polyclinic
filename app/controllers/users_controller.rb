@@ -1,5 +1,5 @@
 class UsersController < ApplicationController
-  def profile
+  def appointments
     @user = current_user
     @appointments = @user.appointments.includes(:doctor)
   end
