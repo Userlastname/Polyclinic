@@ -7,10 +7,10 @@ Rails.application.routes.draw do
   resources :categories, only: [:index, :show]
   resources :appointments, only: [:new, :create ]
   resources :users, only: [:profile] do
-    get 'appointments', to: 'users#profile', as: 'appointments', on: :member
+    get 'appointments', to: 'users#appointments', on: :member
   end
   resources :doctors, only: [:index, :show] do
-    get 'appointments', on: :member
+    get 'recommendations', on: :member
     patch 'update_recommendation', on: :member
   end
 end
