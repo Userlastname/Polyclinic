@@ -1,0 +1,32 @@
+<div class="container max-w-md bg-white border border-gray-200 rounded-lg shadow dark:bg-gray-800 dark:border-gray-700" style="width: 500px;">
+  <% @appointments.each do |appointment| %>
+    <ol class="list-group list-group-numbered text-center">
+      <li class="list-group-item">
+        <div class="max-w-md bg-white border border-gray-200 rounded-lg shadow dark:bg-gray-800 dark:border-gray-700">
+          <div class="p-6 text-center">
+            <h4 class="mb-2 block font-sans text-2xl text-white font-semibold leading-snug tracking-normal text-blue-gray-900 antialiased">
+            Patient: <%= appointment.user.first_name %> <%= appointment.user.last_name %>
+            </h4>
+            <p class="block text-sm text-gray-500 truncate dark:text-gray-400">
+            <%= appointment.recommendation %>
+            <% if appointment.recommendation.blank? %>
+              <%= form_with(url: update_recommendation_doctor_path(current_doctor), method: :patch) do |f| %>
+                <%= f.hidden_field :appointment_id, value: appointment.id %>
+                <%= f.label :recommendation, class: "text-white" %>
+                <%= f.text_area :recommendation, rows: 6, cols: 40 %>
+                <%= f.submit "Add recommendation", class: "text-white bg-gray-800 hover:bg-gray-900 focus:outline-none focus:ring-4 focus:ring-gray-300 font-medium rounded-lg text-sm px-5 py-2.5 mr-2 mb-2 dark:bg-gray-800 dark:hover:bg-gray-700 dark:focus:ring-gray-700 dark:border-gray-700" %>
+              <% end %>
+              <p class="text-sm font-medium text-gray-900 truncate dark:text-white">
+                <%= appointment.user.phone %>
+              </p>
+              <p class="text-sm text-gray-500 truncate dark:text-gray-400">
+                Date&Time: <%= appointment.created_at %>
+              </p>
+            <% end %>
+            </p>
+          </div>
+        </div>
+      </li>
+    </ol>
+  <% end %>
+</div>
