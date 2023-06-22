@@ -6,7 +6,7 @@ class Doctor < ApplicationRecord
          :recoverable, :rememberable
   has_many :appointments, dependent: :destroy
   has_many :users, through: :appointments, dependent: :destroy
-  belongs_to :category
+  belongs_to :category, dependent: :destroy
 
   validates :first_name, presence: true
   validates :last_name, presence: true

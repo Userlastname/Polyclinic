@@ -4,7 +4,7 @@ RSpec.describe Doctor, type: :model do
   describe 'associations' do
     it { is_expected.to belong_to(:category).dependent(:destroy) }
 
-    it { is_expected.to have_many(:appointments).dependet(:destroy) }
+    it { is_expected.to have_many(:appointments).dependent(:destroy) }
 
     it { is_expected.to have_many(:users).through(:appointments) }
   end
@@ -12,7 +12,7 @@ RSpec.describe Doctor, type: :model do
   describe 'validations' do
     it { is_expected.to validate_presence_of(:phone) }
 
-    it { is_expected.to validate_uniqueness_of(:phone).case_insensetive }
+    it { is_expected.to validate_uniqueness_of(:phone).case_insensitive }
 
     it { is_expected.to allow_value('1234567890').for(:phone) }
 
