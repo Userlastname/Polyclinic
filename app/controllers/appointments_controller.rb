@@ -7,7 +7,7 @@ class AppointmentsController < ApplicationController
 
     if @appointment.save
       flash[:success] = "You've made an appointment"
-      redirect_to root_path
+      redirect_to request.referer
     else
       render :new
       flash[:error] = "Sorry, something went wrong"

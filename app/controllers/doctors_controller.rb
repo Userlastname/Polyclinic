@@ -6,8 +6,8 @@ class DoctorsController < ApplicationController
   def update_recommendation
     @appointment = Appointment.find(params[:appointment_id])
     @appointment.update(recommendation: params[:recommendation])
-    flash[:success] = 'Recommendations added successfully'
-    redirect_to root_path
+    flash[:success] = 'Recommendation added successfully'
+    redirect_to request.referer
   end
 
   def recommendations

@@ -46,15 +46,15 @@
       <span class="flex-1 ml-3 whitespace-nowrap">Doctors</span>
       </a>
       <div id="dropdown" class="z-10 hidden bg-white divide-y divide-gray-100 rounded-lg shadow w-44 dark:bg-gray-700">
-          <ul class="py-2 text-sm text-gray-700 dark:text-gray-200" aria-labelledby="dropdownHoverButton">
-            <% @categories.each do |category| %>
-              <li>
-                <%= link_to category_path(category), class: "block px-4 py-2 hover:bg-gray-100 dark:hover:bg-gray-600 dark:hover:text-white" do %>
-                  <span class="flex-1 ml-3 whitespace-nowrap"><%= category.name %> </span>
-                <% end %>
-              </li>
-            <% end %>
-          </ul>
+        <ul class="py-2 text-sm text-gray-700 dark:text-gray-200" aria-labelledby="dropdownHoverButton">
+          <% @categories.each do |category| %>
+            <li>
+              <%= link_to category_path(category), class: "block px-4 py-2 hover:bg-gray-100 dark:hover:bg-gray-600 dark:hover:text-white" do %>
+                <span class="flex-1 ml-3 whitespace-nowrap"><%= category.name %> </span>
+              <% end %>
+            </li>
+          <% end %>
+        </ul>
       </li>
       <% if doctor_signed_in? %>
         <li>
@@ -74,6 +74,11 @@
     </ul>
     <p class="notice text-white"><%= notice %></p>
     <p class="alert text-white"><%= alert %></p>
+    <% if flash[:success] %>
+      <div class="px-4 py-3 text-white rounded-lg" style="background-color: green;" role="alert">
+        <p class="font-bold text-center"><%= flash[:success] %></p>
+      </div>
+    <% end %>
   </div>
 </aside>
 <script>
