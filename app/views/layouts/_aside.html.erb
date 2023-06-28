@@ -7,21 +7,21 @@
 </button>
 
 <aside id="logo-sidebar" class="side" aria-label="Sidebar">
-  <div class="h-full px-3 py-4 overflow-y-auto bg-gray-50 dark:bg-gray-800">
+  <div class="sdiv">
     <%= image_tag "logo_polyclinic" %>
     <% if user_signed_in? || doctor_signed_in? %>
       <div class="flex flex-col items-center">
         <% if user_signed_in? %>
-          <h4 class="font-medium text-gray-800 dark:text-gray-200">Patient of Polyclinic</h4>
-          <h4 class="font-medium text-gray-800 dark:text-gray-200"><%= current_user.first_name %> <%= current_user.last_name %></h4>
-          <p class="mx-2 mt-1 text-sm font-medium text-gray-600 dark:text-gray-400 mb-2"><%= current_user.email %></p>
+          <h4 class="sh4">Patient of Polyclinic</h4>
+          <h4 class="sh4"><%= current_user.first_name %> <%= current_user.last_name %></h4>
+          <p class="sp"><%= current_user.email %></p>
         <% elsif doctor_signed_in? %>
-          <h4 class="font-medium text-gray-800 dark:text-gray-200">Doctor of Polyclinic</h4>
-          <h4 class="font-medium text-gray-800 dark:text-gray-200"><%= current_doctor.first_name %> <%= current_doctor.last_name %></h4>
-          <p class="mx-2 mt-1 text-sm font-medium text-gray-600 dark:text-gray-400 mb-2"><%= current_doctor.phone %></p>
+          <h4 class="sh4">Doctor of Polyclinic</h4>
+          <h4 class="sh4"><%= current_doctor.first_name %> <%= current_doctor.last_name %></h4>
+          <p class="sp"><%= current_doctor.phone %></p>
         <% end %>
         <%= button_to destroy_user_session_path, method: :delete, form: { turbolink: false } do %>
-          <svg aria-hidden="true" class="flex-shrink-0 w-6 h-6 text-gray-500 transition duration-75 dark:text-gray-400 group-hover:text-gray-900 dark:group-hover:text-white" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg"><path fill-rule="evenodd" d="M3 3a1 1 0 00-1 1v12a1 1 0 102 0V4a1 1 0 00-1-1zm10.293 9.293a1 1 0 001.414 1.414l3-3a1 1 0 000-1.414l-3-3a1 1 0 10-1.414 1.414L14.586 9H7a1 1 0 100 2h7.586l-1.293 1.293z" clip-rule="evenodd"></path></svg>
+          <svg aria-hidden="true" class="logo-exit" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg"><path fill-rule="evenodd" d="M3 3a1 1 0 00-1 1v12a1 1 0 102 0V4a1 1 0 00-1-1zm10.293 9.293a1 1 0 001.414 1.414l3-3a1 1 0 000-1.414l-3-3a1 1 0 10-1.414 1.414L14.586 9H7a1 1 0 100 2h7.586l-1.293 1.293z" clip-rule="evenodd"></path></svg>
         <% end %>
       </div>
     <% else %>
@@ -41,16 +41,16 @@
     <% end %>
     <ul class="space-y-2 font-medium">
       <li>
-      <a href="#"id="dropdownDefaultButton" class="flex items-center p-2 text-gray-900 rounded-lg dark:text-white hover:bg-gray-100 dark:hover:bg-gray-700" data-dropdown-toggle="dropdownHover" data-dropdown-trigger="hover" type="button">
-      <svg aria-hidden="true" class="flex-shrink-0 w-6 h-6 text-gray-500 transition duration-75 dark:text-gray-400 group-hover:text-gray-900 dark:group-hover:text-white" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg"><path fill-rule="evenodd" d="M10 9a3 3 0 100-6 3 3 0 000 6zm-7 9a7 7 0 1114 0H3z" clip-rule="evenodd"></path></svg>
-      <span class="flex-1 ml-3 whitespace-nowrap">Doctors</span>
+      <a href="#"id="dropdownDefaultButton" class="slink" data-dropdown-toggle="dropdownHover" data-dropdown-trigger="hover" type="button">
+      <svg aria-hidden="true" class="ssvg" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg"><path fill-rule="evenodd" d="M10 9a3 3 0 100-6 3 3 0 000 6zm-7 9a7 7 0 1114 0H3z" clip-rule="evenodd"></path></svg>
+      <span class="sspan">Doctors</span>
       </a>
       <div id="dropdown" class="z-10 hidden bg-white divide-y divide-gray-100 rounded-lg shadow w-44 dark:bg-gray-700">
         <ul class="py-2 text-sm text-gray-700 dark:text-gray-200" aria-labelledby="dropdownHoverButton">
           <% @categories.each do |category| %>
             <li>
-              <%= link_to category_path(category), class: "block px-4 py-2 hover:bg-gray-100 dark:hover:bg-gray-600 dark:hover:text-white" do %>
-                <span class="flex-1 ml-3 whitespace-nowrap"><%= category.name %> </span>
+              <%= link_to category_path(category), class: "slink" do %>
+                <span class="sspan"><%= category.name %> </span>
               <% end %>
             </li>
           <% end %>
@@ -58,30 +58,30 @@
       </li>
       <% if doctor_signed_in? %>
         <li>
-          <%= link_to recommendations_doctor_path(current_doctor.id), class: "flex items-center p-2 text-gray-900 rounded-lg dark:text-white hover:bg-gray-100 dark:hover:bg-gray-700" do %>
-            <svg aria-hidden="true" class="flex-shrink-0 w-6 h-6 text-gray-500 transition duration-75 dark:text-gray-400 group-hover:text-gray-900 dark:group-hover:text-white" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg"><path fill-rule="evenodd" d="M5 4a3 3 0 00-3 3v6a3 3 0 003 3h10a3 3 0 003-3V7a3 3 0 00-3-3H5zm-1 9v-1h5v2H5a1 1 0 01-1-1zm7 1h4a1 1 0 001-1v-1h-5v2zm0-4h5V8h-5v2zM9 8H4v2h5V8z" clip-rule="evenodd"></path></svg>
-            <span class="flex-1 ml-3 whitespace-nowrap">Recommendations</span>
+          <%= link_to recommendations_doctor_path(current_doctor.id), class: "slink" do %>
+            <svg aria-hidden="true" class="ssvg" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg"><path fill-rule="evenodd" d="M5 4a3 3 0 00-3 3v6a3 3 0 003 3h10a3 3 0 003-3V7a3 3 0 00-3-3H5zm-1 9v-1h5v2H5a1 1 0 01-1-1zm7 1h4a1 1 0 001-1v-1h-5v2zm0-4h5V8h-5v2zM9 8H4v2h5V8z" clip-rule="evenodd"></path></svg>
+            <span class="sspan">Recommendations</span>
           <% end %>
         </li>
       <% elsif user_signed_in? %>
         <li>
-          <%= link_to appointments_user_path(id: current_user.id), class: "flex items-center p-2 text-gray-900 rounded-lg dark:text-white hover:bg-gray-100 dark:hover:bg-gray-700" do %>
-          <svg aria-hidden="true" class="flex-shrink-0 w-6 h-6 text-gray-500 transition duration-75 dark:text-gray-400 group-hover:text-gray-900 dark:group-hover:text-white" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg"><path fill-rule="evenodd" d="M5 4a3 3 0 00-3 3v6a3 3 0 003 3h10a3 3 0 003-3V7a3 3 0 00-3-3H5zm-1 9v-1h5v2H5a1 1 0 01-1-1zm7 1h4a1 1 0 001-1v-1h-5v2zm0-4h5V8h-5v2zM9 8H4v2h5V8z" clip-rule="evenodd"></path></svg>
-          <span class="flex-1 ml-3 whitespace-nowrap">Appointments</span>
+          <%= link_to appointments_user_path(id: current_user.id), class: "slink" do %>
+          <svg aria-hidden="true" class="ssvg" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg"><path fill-rule="evenodd" d="M5 4a3 3 0 00-3 3v6a3 3 0 003 3h10a3 3 0 003-3V7a3 3 0 00-3-3H5zm-1 9v-1h5v2H5a1 1 0 01-1-1zm7 1h4a1 1 0 001-1v-1h-5v2zm0-4h5V8h-5v2zM9 8H4v2h5V8z" clip-rule="evenodd"></path></svg>
+          <span class="sspan">Appointments</span>
           <% end %>
         </li>
       <% end %>
         <li>
-          <%= link_to about_us_path, class: "flex items-center p-2 text-gray-900 rounded-lg dark:text-white hover:bg-gray-100 dark:hover:bg-gray-700" do %>
-            <svg aria-hidden="true" class="w-6 h-6 text-gray-500 transition duration-75 dark:text-gray-400 group-hover:text-gray-900 dark:group-hover:text-white" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg"><path d="M2 10a8 8 0 018-8v8h8a8 8 0 11-16 0z"></path><path d="M12 2.252A8.014 8.014 0 0117.748 8H12V2.252z"></path></svg>
-            <span class="ml-3">About us</span>
+          <%= link_to about_us_path, class: "slink" do %>
+            <svg aria-hidden="true" class="ssvg" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg"><path d="M2 10a8 8 0 018-8v8h8a8 8 0 11-16 0z"></path><path d="M12 2.252A8.014 8.014 0 0117.748 8H12V2.252z"></path></svg>
+            <span class="sspan">About us</span>
           <% end %>
         </li>
     </ul>
-    <p class="font-bold text-center" style="color: lime;"><%= notice %></p>
-    <p class="font-bold text-center" style="color: lime;"><%= alert %></p>
+    <p class="font-bold text-center lime"><%= notice %></p>
+    <p class="font-bold text-center lime"><%= alert %></p>
     <% if flash[:success] %>
-      <div class="px-4 py-3 text-white rounded-lg" style="background-color: green;" role="alert">
+      <div class="px-4 py-3 text-white rounded-lg bg-lime" role="alert">
         <p class="font-bold text-center"><%= flash[:success] %></p>
       </div>
     <% end %>

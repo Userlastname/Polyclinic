@@ -1,5 +1,0 @@
-@layer {
-  .d {
-    @apply display: flex justify-content: flex-start;
-  }
-}
