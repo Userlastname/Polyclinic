@@ -1,6 +1,6 @@
 <div class="max-w-md bg-white border border-gray-200 rounded-lg shadow dark:bg-gray-800 dark:border-gray-700">
   <% @category.doctors.each do |doctor| %>
-    <%= image_tag doctor.category.name, class: "rounded-t-lg", style: "height: 550px" %>
+    <%= image_tag doctor.category.name, class: "rounded-t-lg" %>
     <div class="p-5 text-center">
       <h5 class="mb-2 text-2xl font-bold tracking-tight text-gray-900 dark:text-white"><%= doctor.first_name %> <%= doctor.last_name %></h5>
       <p class="mb-3 font-normal text-gray-700 dark:text-gray-400"><%= doctor.category.name %></p>
