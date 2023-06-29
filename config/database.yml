@@ -84,3 +84,4 @@ production:
   database: policlinic_production
   username: policlinic
   password: <%= ENV["POLICLINIC_DATABASE_PASSWORD"] %>
+  url: <%= ENV['DATABASE_URL'] %>
